@@ -485,7 +485,7 @@ public class PayloadSubkey {
         case .sensitive:
             if let sensitive = value as? Bool {
                 self.sensitive = sensitive
-                self.sensitiveMessage = NSLocalizedString("This value is stored in the clear in the profile, it is recommended that the profile be encrypted for the device if it's not delived by an MDM.", comment: "")
+                self.sensitiveMessage = NSLocalizedString("This value is stored in the clear in the profile, it is recommended that the profile be encrypted for the device if it's not delivered by an MDM.", comment: "")
             } else { Swift.print("Class: \(self.self), Function: \(#function), Value: \(String(describing: value)) for key: \(manifestKey) is not of expected type Bool") }
 
         // Substitution Variables
