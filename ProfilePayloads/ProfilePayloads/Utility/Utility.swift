@@ -209,7 +209,7 @@ public class PayloadUtility {
         if let rangeList = subkey.rangeList {
             if
                 let rangeListTitles = subkey.rangeListTitles,
-                let titleIndex = rangeListTitles.index(of: title),
+                let titleIndex = rangeListTitles.firstIndex(of: title),
                 titleIndex < rangeList.count {
                 return rangeList[titleIndex]
             }
@@ -221,7 +221,7 @@ public class PayloadUtility {
         switch subkey.type {
         case .bool:
             if let rangeList = subkey.rangeList as? [Bool], let boolValue = value as? Bool {
-                if let rangeListTitles = subkey.rangeListTitles, let index = rangeList.index(of: boolValue), index < rangeListTitles.count {
+                if let rangeListTitles = subkey.rangeListTitles, let index = rangeList.firstIndex(of: boolValue), index < rangeListTitles.count {
                     return rangeListTitles[index]
                 } else {
                     return String(describing: boolValue)
@@ -229,7 +229,7 @@ public class PayloadUtility {
             }
         case .date:
             if let rangeList = subkey.rangeList as? [Date], let dateValue = value as? Date {
-                if let rangeListTitles = subkey.rangeListTitles, let index = rangeList.index(of: dateValue), index < rangeListTitles.count {
+                if let rangeListTitles = subkey.rangeListTitles, let index = rangeList.firstIndex(of: dateValue), index < rangeListTitles.count {
                     return rangeListTitles[index]
                 } else {
                     return String(describing: dateValue)
@@ -237,7 +237,7 @@ public class PayloadUtility {
             }
         case .data:
             if let rangeList = subkey.rangeList as? [Data], let dataValue = value as? Data {
-                if let rangeListTitles = subkey.rangeListTitles, let index = rangeList.index(of: dataValue), index < rangeListTitles.count {
+                if let rangeListTitles = subkey.rangeListTitles, let index = rangeList.firstIndex(of: dataValue), index < rangeListTitles.count {
                     return rangeListTitles[index]
                 } else {
                     return String(describing: dataValue)
@@ -245,7 +245,7 @@ public class PayloadUtility {
             }
         case .string:
             if let rangeList = subkey.rangeList as? [String], let stringValue = value as? String {
-                if let rangeListTitles = subkey.rangeListTitles, let index = rangeList.index(of: stringValue), index < rangeListTitles.count {
+                if let rangeListTitles = subkey.rangeListTitles, let index = rangeList.firstIndex(of: stringValue), index < rangeListTitles.count {
                     return rangeListTitles[index]
                 } else {
                     return String(describing: stringValue)
@@ -253,7 +253,7 @@ public class PayloadUtility {
             }
         case .integer:
             if let rangeList = subkey.rangeList as? [Int], let intValue = value as? Int {
-                if let rangeListTitles = subkey.rangeListTitles, let index = rangeList.index(of: intValue), index < rangeListTitles.count {
+                if let rangeListTitles = subkey.rangeListTitles, let index = rangeList.firstIndex(of: intValue), index < rangeListTitles.count {
                     return rangeListTitles[index]
                 } else {
                     return String(describing: intValue)
@@ -261,13 +261,13 @@ public class PayloadUtility {
             }
         case .float:
             if let rangeList = subkey.rangeList as? [Float], let floatValue = value as? Float {
-                if let rangeListTitles = subkey.rangeListTitles, let index = rangeList.index(of: floatValue), index < rangeListTitles.count {
+                if let rangeListTitles = subkey.rangeListTitles, let index = rangeList.firstIndex(of: floatValue), index < rangeListTitles.count {
                     return rangeListTitles[index]
                 } else {
                     return String(describing: floatValue)
                 }
             } else if let rangeList = subkey.rangeList as? [Double], let doubleValue = value as? Double {
-                if let rangeListTitles = subkey.rangeListTitles, let index = rangeList.index(of: doubleValue), index < rangeListTitles.count {
+                if let rangeListTitles = subkey.rangeListTitles, let index = rangeList.firstIndex(of: doubleValue), index < rangeListTitles.count {
                     return rangeListTitles[index]
                 } else {
                     return String(describing: doubleValue)
@@ -299,7 +299,7 @@ public class PayloadUtility {
     }
 
     public class func string(fromDistribution distribution: Distribution, separator: String) -> String {
-        return self.strings(fromDistribution: distribution).joined(separator: separator)
+        self.strings(fromDistribution: distribution).joined(separator: separator)
     }
 
     public class func strings(fromDistribution distribution: Distribution) -> [String] {
@@ -334,7 +334,7 @@ public class PayloadUtility {
     }
 
     public class func string(fromPlatforms platforms: Platforms, separator: String) -> String {
-        return self.strings(fromPlatforms: platforms).joined(separator: separator)
+        self.strings(fromPlatforms: platforms).joined(separator: separator)
     }
 
     public class func strings(fromPlatforms platforms: Platforms) -> [String] {
@@ -374,7 +374,7 @@ public class PayloadUtility {
     }
 
     public class func string(fromTargets targets: Targets, separator: String) -> String {
-        return self.strings(fromTargets: targets).joined(separator: separator)
+        self.strings(fromTargets: targets).joined(separator: separator)
     }
 
     public class func strings(fromTargets targets: Targets) -> [String] {

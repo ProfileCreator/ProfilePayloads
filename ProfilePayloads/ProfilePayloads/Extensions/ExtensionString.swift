@@ -10,14 +10,14 @@ import Foundation
 
 extension String {
     var isNumber: Bool {
-        return !isEmpty && rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+        !isEmpty && rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
     }
 }
 
 extension Bool {
-    var intValue: Int { return self ? 1 : 0 }
+    var intValue: Int { self ? 1 : 0 }
 }
 
 extension Int {
-    var boolValue: Bool { return self != 0 }
+    var boolValue: Bool { self != 0 }
 }

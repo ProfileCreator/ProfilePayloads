@@ -27,10 +27,10 @@ public class PayloadValueProcessorHex2Data: PayloadValueProcessor {
     }
 
     override func data(fromString string: String) -> Data? {
-        return dataWithHexString(hex: string)
+        dataWithHexString(hex: string)
     }
 
     override func string(fromData data: Data) -> String? {
-        return  data.map { String(format: "%02x", $0) }.joined()
+        data.map { String(format: "%02x", $0) }.joined()
     }
 }

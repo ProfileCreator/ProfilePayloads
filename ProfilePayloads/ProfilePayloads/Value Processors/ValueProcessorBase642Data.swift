@@ -11,10 +11,10 @@ import Foundation
 public class PayloadValueProcessorBase642Data: PayloadValueProcessor {
 
     override func string(fromData data: Data) -> String? {
-        return data.base64EncodedString()
+        data.base64EncodedString()
     }
 
     override func data(fromString string: String) -> Data? {
-        return Data(base64Encoded: string, options: .ignoreUnknownCharacters)
+        Data(base64Encoded: string, options: .ignoreUnknownCharacters)
     }
 }

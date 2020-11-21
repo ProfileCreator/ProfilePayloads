@@ -28,7 +28,7 @@ extension Data {
 
 extension Array where Element: Comparable {
     func containsSameElements(as other: [Element]) -> Bool {
-        return self.count == other.count && self.sorted() == other.sorted()
+        self.count == other.count && self.sorted() == other.sorted()
     }
 }
 
@@ -358,36 +358,36 @@ extension Array where Element: Any {
         case .float:
             if let valueDouble = value as? Double,
                 let arrayDouble = self as? [Double] {
-                return arrayDouble.index(of: valueDouble)
+                return arrayDouble.firstIndex(of: valueDouble)
             } else if let valueFloat = value as? Float,
                 let arrayFloat = self as? [Float] {
-                return arrayFloat.index(of: valueFloat)
+                return arrayFloat.firstIndex(of: valueFloat)
             }
         case .integer:
             if
                 let valueInt = value as? Int,
                 let arrayInt = self as? [Int] {
-                return arrayInt.index(of: valueInt)
+                return arrayInt.firstIndex(of: valueInt)
             }
         case .string:
             if let valueString = value as? String,
                 let arrayString = self as? [String] {
-                return arrayString.index(of: valueString)
+                return arrayString.firstIndex(of: valueString)
             }
         case .bool:
             if let valueBool = value as? Bool,
                 let arrayBool = self as? [Bool] {
-                return arrayBool.index(of: valueBool)
+                return arrayBool.firstIndex(of: valueBool)
             }
         case .date:
             if let valueDate = value as? Date,
                 let arrayDate = self as? [Date] {
-                return arrayDate.index(of: valueDate)
+                return arrayDate.firstIndex(of: valueDate)
             }
         case .data:
             if let valueData = value as? Data,
                 let arrayData = self as? [Data] {
-                return arrayData.index(of: valueData)
+                return arrayData.firstIndex(of: valueData)
             }
         case .dictionary:
             Swift.print("value: \(value)")
@@ -396,7 +396,7 @@ extension Array where Element: Any {
                 let arrayDictionary = self as? [[String: Any]] {
                 Swift.print("valueDictionary: \(valueDictionary)")
                 Swift.print("arrayDictionary: \(arrayDictionary)")
-                return arrayDictionary.index(where: { $0 == valueDictionary })
+                return arrayDictionary.firstIndex(where: { $0 == valueDictionary })
             }
         default:
             Swift.print("Class: \(self.self), Function: \(#function), Unknown Type: \(type)")
@@ -413,7 +413,7 @@ extension Array where Element: Any {
                 let valuesDouble = values as? [Double],
                 let arrayDouble = self as? [Double] {
                 valuesDouble.forEach {
-                    if let index = arrayDouble.index(of: $0) {
+                    if let index = arrayDouble.firstIndex(of: $0) {
                         indexSet.insert(index)
                     }
                 }
@@ -421,7 +421,7 @@ extension Array where Element: Any {
                 let valuesFloat = values as? [Float],
                 let arrayFloat = self as? [Float] {
                 valuesFloat.forEach {
-                    if let index = arrayFloat.index(of: $0) {
+                    if let index = arrayFloat.firstIndex(of: $0) {
                         indexSet.insert(index)
                     }
                 }
@@ -431,7 +431,7 @@ extension Array where Element: Any {
                 let valuesInt = values as? [Int],
                 let arrayInt = self as? [Int] {
                 valuesInt.forEach {
-                    if let index = arrayInt.index(of: $0) {
+                    if let index = arrayInt.firstIndex(of: $0) {
                         indexSet.insert(index)
                     }
                 }
@@ -440,7 +440,7 @@ extension Array where Element: Any {
             if let valuesString = values as? [String],
                 let arrayString = self as? [String] {
                 valuesString.forEach {
-                    if let index = arrayString.index(of: $0) {
+                    if let index = arrayString.firstIndex(of: $0) {
                         indexSet.insert(index)
                     }
                 }
@@ -449,7 +449,7 @@ extension Array where Element: Any {
             if let valuesBool = values as? [Bool],
                 let arrayBool = self as? [Bool] {
                 valuesBool.forEach {
-                    if let index = arrayBool.index(of: $0) {
+                    if let index = arrayBool.firstIndex(of: $0) {
                         indexSet.insert(index)
                     }
                 }
@@ -458,7 +458,7 @@ extension Array where Element: Any {
             if let valuesDate = values as? [Date],
                 let arrayDate = self as? [Date] {
                 valuesDate.forEach {
-                    if let index = arrayDate.index(of: $0) {
+                    if let index = arrayDate.firstIndex(of: $0) {
                         indexSet.insert(index)
                     }
                 }
@@ -467,7 +467,7 @@ extension Array where Element: Any {
             if let valuesData = values as? [Data],
                 let arrayData = self as? [Data] {
                 valuesData.forEach {
-                    if let index = arrayData.index(of: $0) {
+                    if let index = arrayData.firstIndex(of: $0) {
                         indexSet.insert(index)
                     }
                 }

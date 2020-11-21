@@ -254,10 +254,10 @@ public class Payload: Hashable {
     // MARK: -
     // MARK: Hashable
 
-    public var hashValue: Int { return ObjectIdentifier(self).hashValue }
+    public var hashValue: Int { ObjectIdentifier(self).hashValue }
 
     public static func == (lhs: Payload, rhs: Payload) -> Bool {
-        return lhs.domainIdentifier == rhs.domainIdentifier && lhs.type == rhs.type
+        lhs.domainIdentifier == rhs.domainIdentifier && lhs.type == rhs.type
     }
 
 }

@@ -24,12 +24,10 @@ class PayloadCustomController {
     // MARK: Update
 
     public func updateAll() {
-        return
-    }
+        }
 
     public func update(type: PayloadType) {
-        return
-    }
+        }
 
     // MARK: -
     // MARK: Custom Manifest

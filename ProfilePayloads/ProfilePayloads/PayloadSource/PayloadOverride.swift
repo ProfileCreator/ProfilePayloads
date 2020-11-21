@@ -37,7 +37,7 @@ class PayloadOverrides {
     }
 
     static func mergeDictionaries(source sourceDict: [String: Any], override overrideDict: [String: Any]) -> [String: Any] {
-        return sourceDict.merging(overrideDict) { source, override -> Any in
+        sourceDict.merging(overrideDict) { source, override -> Any in
             switch PayloadUtility.valueType(value: source) {
             case .array:
                 guard

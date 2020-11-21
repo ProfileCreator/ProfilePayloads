@@ -10,7 +10,7 @@ import Foundation
 
 // Compare Dictionaries
 public func == (lhs: PayloadSubkey, rhs: PayloadSubkey ) -> Bool {
-    return lhs.identifier == rhs.identifier
+    lhs.identifier == rhs.identifier
 }
 
 public class PayloadSubkey {

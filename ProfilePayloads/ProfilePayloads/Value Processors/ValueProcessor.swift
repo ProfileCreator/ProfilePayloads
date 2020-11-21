@@ -102,23 +102,23 @@ public class PayloadValueProcessor {
     }
 
     func bool(fromInteger integer: Int) -> Bool {
-        return integer == 0 ? false : true
+        integer == 0 ? false : true
     }
 
     func array(fromInteger integer: Int) -> [Any]? {
-        return nil
+        nil
     }
 
     func date(fromInteger integer: Int) -> Date? {
-        return nil
+        nil
     }
 
     func float(fromInteger integer: Int) -> Float? {
-        return Float(integer)
+        Float(integer)
     }
 
     func string(fromInteger integer: Int) -> String? {
-        return String(integer)
+        String(integer)
     }
 
     // MARK: -
@@ -137,7 +137,7 @@ public class PayloadValueProcessor {
     }
 
     func integer(fromDate date: Date) -> Int? {
-        return Int(date.timeIntervalSince1970)
+        Int(date.timeIntervalSince1970)
     }
 
     // MARK: -
@@ -160,7 +160,7 @@ public class PayloadValueProcessor {
     }
 
     func integer(fromArray array: [Any]) -> Int? {
-        return nil
+        nil
     }
 
     func string(fromArray array: [Any]) -> String? {
@@ -210,7 +210,7 @@ public class PayloadValueProcessor {
     }
 
     func string(fromData data: Data) -> String? {
-        return String(data: data, encoding: .utf8)
+        String(data: data, encoding: .utf8)
     }
 
     func dictionary(fromData data: Data) -> [String: Any]? {
@@ -237,7 +237,7 @@ public class PayloadValueProcessor {
     }
 
     func data(fromDictionary dictionary: [String: Any]) -> Data? {
-        return NSKeyedArchiver.archivedData(withRootObject: dictionary)
+        NSKeyedArchiver.archivedData(withRootObject: dictionary)
     }
 
     func array(fromDictionary dictionary: [String: Any]) -> [Any]? {
@@ -284,19 +284,19 @@ public class PayloadValueProcessor {
     }
 
     func array(fromString string: String) -> [Any] {
-        return [string]
+        [string]
     }
 
     func data(fromString string: String) -> Data? {
-        return string.data(using: .utf8, allowLossyConversion: false)
+        string.data(using: .utf8, allowLossyConversion: false)
     }
 
     func integer(fromString string: String) -> Int? {
-        return Int(string)
+        Int(string)
     }
 
     func string(fromString string: String) -> String? {
-        return string
+        string
     }
 
 }

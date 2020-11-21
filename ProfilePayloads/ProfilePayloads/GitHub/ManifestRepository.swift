@@ -415,9 +415,9 @@ public class ManifestRepository: Hashable {
     // MARK: -
     // MARK: Hashable
 
-    public var hashValue: Int { return url.hashValue }
+    public var hashValue: Int { url.hashValue }
 
     static public func == (lhs: ManifestRepository, rhs: ManifestRepository) -> Bool {
-        return lhs.url == rhs.url
+        lhs.url == rhs.url
     }
 }

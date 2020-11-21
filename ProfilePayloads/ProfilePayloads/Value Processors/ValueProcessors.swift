@@ -18,7 +18,7 @@ public class PayloadValueProcessors {
     private init() {}
 
     public func processor(subkey: PayloadSubkey, inputType: PayloadValueType, outputType: PayloadValueType) -> PayloadValueProcessor {
-        return PayloadValueProcessor(subkey: subkey, inputType: inputType, outputType: outputType)
+        PayloadValueProcessor(subkey: subkey, inputType: inputType, outputType: outputType)
     }
 
     public func processor(withIdentifier identifier: String, subkey: PayloadSubkey, inputType: PayloadValueType, outputType: PayloadValueType) -> PayloadValueProcessor {
@@ -83,10 +83,10 @@ public class PayloadValueProcessors {
     }
 
     public func process(savedValue value: Any?, forSubkey subkey: PayloadSubkey) throws -> Any? {
-        return try self.process(value: value, forSubkey: subkey, inputType: subkey.type, outputType: subkey.typeInput)
+        try self.process(value: value, forSubkey: subkey, inputType: subkey.type, outputType: subkey.typeInput)
     }
 
     public func process(inputValue value: Any?, forSubkey subkey: PayloadSubkey) throws -> Any? {
-        return try self.process(value: value, forSubkey: subkey, inputType: subkey.typeInput, outputType: subkey.type)
+        try self.process(value: value, forSubkey: subkey, inputType: subkey.typeInput, outputType: subkey.type)
     }
 }

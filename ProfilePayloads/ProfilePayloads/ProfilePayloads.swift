@@ -45,7 +45,7 @@ public class ProfilePayloads {
     //  Payload Icon Functions
     // ---------------------------------------------------------------------
     public func icon(forDomainIdentifier domainIdentifier: String, domain: String, type: PayloadType) -> NSImage? {
-        return self.icon(forDomainIdentifier: domainIdentifier, type: type) ?? self.icon(forDomainIdentifier: domain, type: type)
+        self.icon(forDomainIdentifier: domainIdentifier, type: type) ?? self.icon(forDomainIdentifier: domain, type: type)
     }
 
     internal func icon(forDomainIdentifier domainIdentifier: String, type: PayloadType) -> NSImage? {
@@ -145,7 +145,7 @@ public class ProfilePayloads {
     //  Payload Subkey Functions
     // ---------------------------------------------------------------------
     public func payloadSubkey(forKeyPath keyPath: String, domainIdentifier: String, type: PayloadType) -> PayloadSubkey? {
-        return self.payload(forDomainIdentifier: domainIdentifier, type: type)?.allSubkeys.first { $0.keyPath == keyPath }
+        self.payload(forDomainIdentifier: domainIdentifier, type: type)?.allSubkeys.first { $0.keyPath == keyPath }
     }
 
     public func payloadSubkey(forKeyPath keyPath: String, domain: String, type: PayloadType) -> PayloadSubkey? {
@@ -162,7 +162,7 @@ public class ProfilePayloads {
     //  Apple Manifest Payload Functions
     // ---------------------------------------------------------------------
     public func appleManifests(forType type: PayloadType) -> [PayloadManifest]? {
-        return PayloadManifestController.shared.manifests(forType: type)
+        PayloadManifestController.shared.manifests(forType: type)
     }
 
     public func appleManifest(forDomainIdentifier domainIdentifier: String, ofType type: PayloadType) -> PayloadManifest? {
@@ -180,60 +180,60 @@ public class ProfilePayloads {
     }
 
     public func appleManifestPlaceholders(forType type: PayloadType) -> [PayloadPlaceholder]? {
-        return PayloadManifestController.shared.manifestPlacehoders(forType: type)
+        PayloadManifestController.shared.manifestPlacehoders(forType: type)
     }
 
     // ---------------------------------------------------------------------
     //  Managed Preferences Functions
     // ---------------------------------------------------------------------
     public func managedPreferences(forType type: PayloadType) -> [PayloadManagedPreference]? {
-        return PayloadManagedPreferenceController.shared.managedPreferences(forType: type)
+        PayloadManagedPreferenceController.shared.managedPreferences(forType: type)
     }
 
     public func managedPreference(forDomainIdentifier domainIdentifier: String, ofType type: PayloadType) -> PayloadManagedPreference? {
-        return PayloadManagedPreferenceController.shared.managedPreference(forDomainIdentifier: domainIdentifier, ofType: type)
+        PayloadManagedPreferenceController.shared.managedPreference(forDomainIdentifier: domainIdentifier, ofType: type)
     }
 
     public func managedPreferences(forDomain domain: String, ofType type: PayloadType) -> [PayloadManagedPreference]? {
-        return PayloadManagedPreferenceController.shared.managedPreferences(forDomain: domain, ofType: type)
+        PayloadManagedPreferenceController.shared.managedPreferences(forDomain: domain, ofType: type)
     }
 
     public func managedPreferencePlaceholders(forType type: PayloadType) -> [PayloadPlaceholder]? {
-        return PayloadManagedPreferenceController.shared.managedPreferencePlaceholders(forType: type)
+        PayloadManagedPreferenceController.shared.managedPreferencePlaceholders(forType: type)
     }
 
     // ---------------------------------------------------------------------
     //  Managed Preferences Local Functions
     // ---------------------------------------------------------------------
     public func managedPreferencesLocal(forType type: PayloadType) -> [PayloadManagedPreferenceLocal]? {
-        return PayloadManagedPreferenceLocalController.shared.managedPreferences(forType: type)
+        PayloadManagedPreferenceLocalController.shared.managedPreferences(forType: type)
     }
 
     public func managedPreferenceLocal(forDomainIdentifier domainIdentifier: String, ofType type: PayloadType) -> PayloadManagedPreferenceLocal? {
-        return PayloadManagedPreferenceLocalController.shared.managedPreference(forDomainIdentifier: domainIdentifier, ofType: type)
+        PayloadManagedPreferenceLocalController.shared.managedPreference(forDomainIdentifier: domainIdentifier, ofType: type)
     }
 
     public func managedPreferencesLocal(forDomain domain: String, ofType type: PayloadType) -> [PayloadManagedPreferenceLocal]? {
-        return PayloadManagedPreferenceLocalController.shared.managedPreferences(forDomain: domain, ofType: type)
+        PayloadManagedPreferenceLocalController.shared.managedPreferences(forDomain: domain, ofType: type)
     }
 
     public func managedPreferenceLocalPlaceholders(forType type: PayloadType) -> [PayloadPlaceholder]? {
-        return PayloadManagedPreferenceLocalController.shared.managedPreferencePlaceholders(forType: type)
+        PayloadManagedPreferenceLocalController.shared.managedPreferencePlaceholders(forType: type)
     }
 
     // ---------------------------------------------------------------------
     //  Custom Payload Functions
     // ---------------------------------------------------------------------
     public func customManifests(forType type: PayloadType, typeSettings: [String: [[String: Any]]]) -> [PayloadCustom]? {
-        return PayloadCustomController.shared.customManifests(forType: type, typeSettings: typeSettings)
+        PayloadCustomController.shared.customManifests(forType: type, typeSettings: typeSettings)
     }
 
     public func customManifest(forDomainIdentifier domainIdentifier: String, ofType type: PayloadType, payloadContent: [[String: Any]]) -> PayloadCustom? {
-        return PayloadCustomController.shared.customManifest(forDomainIdentifier: domainIdentifier, ofType: type, payloadContent: payloadContent)
+        PayloadCustomController.shared.customManifest(forDomainIdentifier: domainIdentifier, ofType: type, payloadContent: payloadContent)
     }
 
     public func customManifestPlaceholders(forType type: PayloadType, typeSettings: [String: [[String: Any]]]) -> [PayloadPlaceholder]? {
-        return PayloadCustomController.shared.customManifestPlaceholders(forType: type, typeSettings: typeSettings)
+        PayloadCustomController.shared.customManifestPlaceholders(forType: type, typeSettings: typeSettings)
     }
 
     // ---------------------------------------------------------------------

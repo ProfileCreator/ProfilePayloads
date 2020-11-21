@@ -128,9 +128,9 @@ public class PayloadPlaceholder: Hashable, Encodable, Decodable {
     // MARK: -
     // MARK: Hashable
 
-    public var hashValue: Int { return ObjectIdentifier(self).hashValue }
+    public var hashValue: Int { ObjectIdentifier(self).hashValue }
 
     public static func == (lhs: PayloadPlaceholder, rhs: PayloadPlaceholder) -> Bool {
-        return lhs.domainIdentifier == rhs.domainIdentifier && lhs.payloadType == rhs.payloadType
+        lhs.domainIdentifier == rhs.domainIdentifier && lhs.payloadType == rhs.payloadType
     }
 }

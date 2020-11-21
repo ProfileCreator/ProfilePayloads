@@ -34,6 +34,6 @@ public class PayloadValueProcessorWeekdaysBitmask2Int: PayloadValueProcessor {
     }
 
     override func array(fromInteger integer: Int) -> [Any]? {
-        return self.split(bitmask: integer)
+        self.split(bitmask: integer)
     }
 }
