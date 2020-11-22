@@ -38,7 +38,7 @@ public class PayloadManifestSubkey: PayloadSubkey {
 
     private func initialize(key: String, value: Any?) {
         guard let manifestKey = ManifestKey(rawValue: key) else {
-            Swift.print("Class: \(self.self), Function: \(#function), Failed to create a ManifesKey from dictionary key: \(key)")
+            Swift.print("Class: \(self.self), Function: \(#function), Failed to create a ManifestKey from dictionary key: \(key)")
             return
         }
 
