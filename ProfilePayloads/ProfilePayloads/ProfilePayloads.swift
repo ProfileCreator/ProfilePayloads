@@ -166,16 +166,20 @@ public class ProfilePayloads {
     }
 
     public func appleManifest(forDomainIdentifier domainIdentifier: String, ofType type: PayloadType) -> PayloadManifest? {
+        /*
         if domainIdentifier == kManifestDomainAppleRoot || domainIdentifier == kManifestDomainApplePEM {
             return PayloadManifestController.shared.manifest(forDomainIdentifier: kManifestDomainApplePKCS1, ofType: type)
         }
+        */
         return PayloadManifestController.shared.manifest(forDomainIdentifier: domainIdentifier, ofType: type)
     }
 
     public func appleManifests(forDomain domain: String, ofType type: PayloadType) -> [PayloadManifest]? {
+        /*
         if domain == kManifestDomainAppleRoot || domain == kManifestDomainApplePEM {
             return PayloadManifestController.shared.manifests(forDomain: kManifestDomainApplePKCS1, ofType: type)
         }
+        */
         return PayloadManifestController.shared.manifests(forDomain: domain, ofType: type)
     }
 
