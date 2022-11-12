@@ -14,7 +14,7 @@ public class ProfilePayloads {
     //  Variables
     // ---------------------------------------------------------------------
     public static let shared = ProfilePayloads()
-    public static let platformsSupervised: Platforms = [.iOS, .tvOS]
+    public static let platformsSupervised: Platforms = [.iOS, .tvOS, .macOS]
     public static let platformsUserApproved: Platforms = [.macOS]
     public static let rangeListConvertMax = 40
 
