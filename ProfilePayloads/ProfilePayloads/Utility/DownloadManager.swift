@@ -53,26 +53,26 @@ class DownloadManager: NSObject {
             return
         }
 
-        //Swift.print("downloadTask: \(downloadTask)")
+        // Swift.print("downloadTask: \(downloadTask)")
         let downloadObject = DownloadObject(task: downloadTask,
                                             completionBlock: { _, fileURL in
 
                                                 if let downloadedURL = fileURL {
                                                     self.downloadedURLs.append(downloadedURL)
                                                 }
-                                                //Swift.print("error: \(error)")
-                                                //Swift.print("fileURL: \(fileURL)")
-                                                //Swift.print("remaining: \(self.sessionDownloads.count)")
+                                                // Swift.print("error: \(error)")
+                                                // Swift.print("fileURL: \(fileURL)")
+                                                // Swift.print("remaining: \(self.sessionDownloads.count)")
                                                 if self.sessionDownloads.isEmpty {
                                                     completionHandler(self.downloadedURLs, nil)
                                                 }
         },
                                             fileName: url.lastPathComponent,
                                             directoryURL: directoryURL)
-        //Swift.print("downloadObject: \(downloadObject)")
+        // Swift.print("downloadObject: \(downloadObject)")
         self.sessionDownloads[url.absoluteString] = downloadObject
-        //Swift.print("self.sessionDownloads: \(self.sessionDownloads)")
-        //Swift.print("Resume Download")
+        // Swift.print("self.sessionDownloads: \(self.sessionDownloads)")
+        // Swift.print("Resume Download")
         downloadTask.resume()
     }
 }
@@ -82,17 +82,17 @@ extension DownloadManager: URLSessionDelegate, URLSessionDownloadDelegate {
                     downloadTask: URLSessionDownloadTask,
                     didFinishDownloadingTo location: URL) {
 
-        //Swift.print("urlSession: \(session), downloadTask: \(downloadTask), location: \(location)")
-        //Swift.print("Getting key: \(downloadTask.originalRequest?.url?.absoluteString)")
+        // Swift.print("urlSession: \(session), downloadTask: \(downloadTask), location: \(location)")
+        // Swift.print("Getting key: \(downloadTask.originalRequest?.url?.absoluteString)")
         guard let key = downloadTask.originalRequest?.url?.absoluteString else { return }
-        //Swift.print("key: \(key)")
+        // Swift.print("key: \(key)")
         if let downloadObject = self.sessionDownloads[key] {
             self.sessionDownloads.removeValue(forKey: key)
-            //Swift.print("downloadTask.response: \(downloadTask.response)")
+            // Swift.print("downloadTask.response: \(downloadTask.response)")
             if let response = downloadTask.response as? HTTPURLResponse {
 
-                //Swift.print("response: \(response)")
-                //Swift.print("response.statusCode: \(response.statusCode)")
+                // Swift.print("response: \(response)")
+                // Swift.print("response.statusCode: \(response.statusCode)")
 
                 // Verify we got a reasonable result
                 guard response.statusCode < 400 else {
@@ -129,10 +129,10 @@ extension DownloadManager: URLSessionDelegate, URLSessionDownloadDelegate {
     func urlSession(_ session: URLSession,
                     task: URLSessionTask,
                     didCompleteWithError error: Error?) {
-        //Swift.print("urlSession: \(session), task: \(task), error: \(error)")
-        //Swift.print("Getting key: \(task.originalRequest?.url?.absoluteString)")
+        // Swift.print("urlSession: \(session), task: \(task), error: \(error)")
+        // Swift.print("Getting key: \(task.originalRequest?.url?.absoluteString)")
         guard let key = task.originalRequest?.url?.absoluteString else { return }
-        //Swift.print("key: \(key)")
+        // Swift.print("key: \(key)")
         if let downloadObject = self.sessionDownloads[key] {
             self.sessionDownloads.removeValue(forKey: key)
             if let error = error {
