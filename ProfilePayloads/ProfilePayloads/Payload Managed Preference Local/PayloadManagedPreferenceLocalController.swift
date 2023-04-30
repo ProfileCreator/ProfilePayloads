@@ -77,7 +77,7 @@ class PayloadManagedPreferenceLocalController {
         self.libraryPreferencesURLs = self.preferenceDomains(at: URL(fileURLWithPath: "/Library/Preferences"))
         self.libraryPreferencesUserURLs = self.preferenceDomains(at: URL(fileURLWithPath: NSHomeDirectory() + "/Library/Preferences"))
         self.libraryPreferencesUserByHostURLs = self.preferenceDomains(at: URL(fileURLWithPath: NSHomeDirectory() + "/Library/Preferences/ByHost"))
-        //self.libraryPreferencesUserSyncedURLs = self.preferenceDomains(at: URL(fileURLWithPath: NSHomeDirectory() + "/Library/SyncedPreferences"))
+        // self.libraryPreferencesUserSyncedURLs = self.preferenceDomains(at: URL(fileURLWithPath: NSHomeDirectory() + "/Library/SyncedPreferences"))
 
         // FIXME: Should get the parent bundles identifier and not hardcode
         self.addManagedPreferencesLocal(forDomains: self.domains.filter { $0 != "com.github.erikberglund.ProfileCreator" },

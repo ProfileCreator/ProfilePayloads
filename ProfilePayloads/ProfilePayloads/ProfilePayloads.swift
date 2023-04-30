@@ -252,10 +252,8 @@ public class ProfilePayloads {
         }
 
         // Managed Preferences
-        for type in [.managedPreferencesApple, .managedPreferencesApplications, .managedPreferencesApplicationsLocal] as [PayloadType] {
-            if managedPreference(forDomainIdentifier: domain, ofType: type) != nil {
-                types.append(type)
-            }
+        for type in [.managedPreferencesApple, .managedPreferencesApplications, .managedPreferencesApplicationsLocal] as [PayloadType] where managedPreference(forDomainIdentifier: domain, ofType: type) != nil {
+            types.append(type)
         }
 
         return types.isEmpty ? nil : types

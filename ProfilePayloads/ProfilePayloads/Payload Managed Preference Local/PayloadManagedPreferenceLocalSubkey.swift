@@ -156,32 +156,32 @@ public class PayloadManagedPreferenceLocalSubkey: PayloadSubkey {
 
             // User ByHost
             if valuesAreEqual(value, CFPreferencesCopyValue(key as CFString, self.domain as CFString, kCFPreferencesCurrentUser, kCFPreferencesCurrentHost)) {
-                //Swift.print("Item: \(key): \(value) is set in: CURRENT USER BYHOST")
+                // Swift.print("Item: \(key): \(value) is set in: CURRENT USER BYHOST")
                 return .userLibraryByHost
 
                 // User Library
             } else if valuesAreEqual(value, CFPreferencesCopyValue(key as CFString, self.domain as CFString, kCFPreferencesCurrentUser, kCFPreferencesAnyHost)) {
-                //Swift.print("Item: \(key): \(value) is set in: CURRENT USER LIBRARY")
+                // Swift.print("Item: \(key): \(value) is set in: CURRENT USER LIBRARY")
                 return .userLibrary
 
                 // User Library Global ByHost
             } else if valuesAreEqual(value, CFPreferencesCopyValue(key as CFString, kCFPreferencesAnyApplication, kCFPreferencesCurrentUser, kCFPreferencesCurrentHost)) {
-                //Swift.print("Item: \(key): \(value) is set in: CURRENT USER GLOBAL BYHOST")
+                // Swift.print("Item: \(key): \(value) is set in: CURRENT USER GLOBAL BYHOST")
                 return .userLibraryGlobalByHost
 
                 // User Library Global
             } else if valuesAreEqual(value, CFPreferencesCopyValue(key as CFString, kCFPreferencesAnyApplication, kCFPreferencesCurrentUser, kCFPreferencesAnyHost)) {
-                //Swift.print("Item: \(key): \(value) is set in: CURRENT USER GLOBAL")
+                // Swift.print("Item: \(key): \(value) is set in: CURRENT USER GLOBAL")
                 return .userLibraryGlobal
 
                 // Library
             } else if valuesAreEqual(value, CFPreferencesCopyValue(key as CFString, self.domain as CFString, kCFPreferencesAnyUser, kCFPreferencesCurrentHost)) {
-                //Swift.print("Item: \(key): \(value) is set in: LIBRARY")
+                // Swift.print("Item: \(key): \(value) is set in: LIBRARY")
                 return .library
 
                 // Library Global
             } else if valuesAreEqual(value, CFPreferencesCopyValue(key as CFString, kCFPreferencesAnyApplication, kCFPreferencesAnyUser, kCFPreferencesAnyHost)) {
-                //Swift.print("Item: \(key): \(value) is set in: LIBRARY GLOBAL")
+                // Swift.print("Item: \(key): \(value) is set in: LIBRARY GLOBAL")
                 return .libraryGlobal
 
             }

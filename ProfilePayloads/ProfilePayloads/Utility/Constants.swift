@@ -372,9 +372,9 @@ public enum PayloadValueType: String {
 
 public enum ManifestKey: String {
 
-    //*
+    // *
     // Apple Preference Manifest Keys
-    //*
+    // *
 
     /**
      **Array of Dictionaries**
@@ -603,15 +603,15 @@ public enum ManifestKey: String {
      */
     case version = "pfm_version"
 
-    //*
-    //*
-    //*
-    //*
+    // *
+    // *
+    // *
+    // *
     // Extended Manifest Format Keys
-    //*
-    //*
-    //*
-    //*
+    // *
+    // *
+    // *
+    // *
 
     /**
      **Array of Strings**
