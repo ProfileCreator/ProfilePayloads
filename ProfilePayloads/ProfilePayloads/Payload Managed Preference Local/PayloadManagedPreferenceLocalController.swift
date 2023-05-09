@@ -80,7 +80,7 @@ class PayloadManagedPreferenceLocalController {
         // self.libraryPreferencesUserSyncedURLs = self.preferenceDomains(at: URL(fileURLWithPath: NSHomeDirectory() + "/Library/SyncedPreferences"))
 
         // FIXME: Should get the parent bundles identifier and not hardcode
-        self.addManagedPreferencesLocal(forDomains: self.domains.filter { $0 != "com.github.erikberglund.ProfileCreator" },
+        self.addManagedPreferencesLocal(forDomains: self.domains.filter { $0 != "com.willyu.profilecreator" },
                                         toManagedPreferences: &managedPreferencesSet)
     }
 
