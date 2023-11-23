@@ -254,7 +254,9 @@ public class Payload: Hashable {
     // MARK: -
     // MARK: Hashable
 
-    public var hashValue: Int { ObjectIdentifier(self).hashValue }
+    public func hash(into hasher: inout Hasher) {
+        hasher.combine(ObjectIdentifier(self))
+    }
 
     public static func == (lhs: Payload, rhs: Payload) -> Bool {
         lhs.domainIdentifier == rhs.domainIdentifier && lhs.type == rhs.type

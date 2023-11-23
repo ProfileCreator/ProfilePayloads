@@ -16,8 +16,12 @@ extension Data {
     var md5: String {
         let length = Int(CC_MD5_DIGEST_LENGTH)
         var hash = [UInt8](repeating: 0, count: length)
-        _ = self.withUnsafeBytes { (ptr: UnsafePointer<UInt8>) in
-            CC_MD5(ptr, CC_LONG(self.count), &hash)
+        self.withUnsafeBytes { buffer in
+            // Convert UnsafeRawBufferPointer to UnsafePointer<UInt8>
+            guard let baseAddress = buffer.baseAddress?.assumingMemoryBound(to: UInt8.self) else {
+                return
+            }
+            CC_MD5(baseAddress, CC_LONG(buffer.count), &hash)
         }
         return (0..<length).map { String(format: "%02x", hash[$0]) }.joined()
     }
