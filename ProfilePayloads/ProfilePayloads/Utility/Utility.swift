@@ -98,8 +98,8 @@ public class PayloadUtility {
                 return PayloadValueType.integer
             }
         } else {
-            //Swift.print("Class: \(self.self), Function: \(#function), Unknown Value Type: \(Swift.type(of: value))")
-            //Swift.print("String(cString: object_getClassName(value)): \(String(cString: object_getClassName(value)))")
+            // Swift.print("Class: \(self.self), Function: \(#function), Unknown Value Type: \(Swift.type(of: value))")
+            // Swift.print("String(cString: object_getClassName(value)): \(String(cString: object_getClassName(value)))")
             return PayloadValueType.undefined
         }
     }

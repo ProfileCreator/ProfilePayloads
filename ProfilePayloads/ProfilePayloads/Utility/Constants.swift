@@ -372,9 +372,9 @@ public enum PayloadValueType: String {
 
 public enum ManifestKey: String {
 
-    //*
+    // *
     // Apple Preference Manifest Keys
-    //*
+    // *
 
     /**
      **Array of Dictionaries**
@@ -603,15 +603,15 @@ public enum ManifestKey: String {
      */
     case version = "pfm_version"
 
-    //*
-    //*
-    //*
-    //*
+    // *
+    // *
+    // *
+    // *
     // Extended Manifest Format Keys
-    //*
-    //*
-    //*
-    //*
+    // *
+    // *
+    // *
+    // *
 
     /**
      **Array of Strings**
@@ -891,8 +891,6 @@ public enum ManifestKey: String {
      **Bool**
 
      Requires the device to be supervised for this key or payload to work.
-
-     _Note_: iOS and tvOS only
      */
     case supervised = "pfm_supervised"
 

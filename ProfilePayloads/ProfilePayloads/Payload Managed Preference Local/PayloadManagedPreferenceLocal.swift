@@ -235,17 +235,17 @@ public class PayloadManagedPreferenceLocal: Payload {
         // Loop through all keys and values
         for (key, value) in preferences {
 
-            //Swift.print("Checking: \(key): \(value)")
+            // Swift.print("Checking: \(key): \(value)")
 
             let valueType = PayloadUtility.valueType(value: value)
             let manifestDict = self.manifestDict(forKey: key, value: value, type: valueType)
 
-            //Swift.print("dynamicDict: \(dynamicDict)")
+            // Swift.print("dynamicDict: \(dynamicDict)")
 
             if dynamicDict, !manifestDictionarySubkeys.isEmpty {
                 let existingKeys = manifestDictionarySubkeys.flatMap { $0.keys }
-                //Swift.print("existingKeys: \(existingKeys)")
-                //Swift.print("Set(existingKeys).isDisjoint(with: newKeys): \(!Set(existingKeys).isDisjoint(with: manifestDict.keys))")
+                // Swift.print("existingKeys: \(existingKeys)")
+                // Swift.print("Set(existingKeys).isDisjoint(with: newKeys): \(!Set(existingKeys).isDisjoint(with: manifestDict.keys))")
                 dynamicDict = !Set(existingKeys).isDisjoint(with: manifestDict.keys)
             }
 
@@ -315,21 +315,21 @@ public class PayloadManagedPreferenceLocal: Payload {
         var manifestSubkey = self.manifestDict(forKey: parentKey ?? "" + "Item", value: nil, type: valueType)
 
         if valueType == .array {
-            //Swift.print("Array in array")
+            // Swift.print("Array in array")
             var manifestArraySubkeys = [[String: Any]]()
             for value in preferences {
-                //Swift.print("Checking value: \(value)")
+                // Swift.print("Checking value: \(value)")
                 guard let valueArray = value as? [Any] else { continue }
-                //Swift.print("Checking valueArray: \(valueArray)")
+                // Swift.print("Checking valueArray: \(valueArray)")
                 let subkeys = self.manifestArraySubkeys(forPreferences: valueArray, parentKey: parentKey ?? "" + "Item")
                 let newSubkeys = subkeys.filter {
                     if let key = $0[ManifestKey.name.rawValue] as? String {
                         return !manifestArraySubkeys.contains { $0[ManifestKey.name.rawValue] as? String == key }
                     } else { return false }
                 }
-                //Swift.print("manifestSubkeys BEFORE: \(manifestArraySubkeys)")
+                // Swift.print("manifestSubkeys BEFORE: \(manifestArraySubkeys)")
                 manifestArraySubkeys.append(contentsOf: newSubkeys)
-                //Swift.print("manifestSubkeys AFTER: \(manifestArraySubkeys)")
+                // Swift.print("manifestSubkeys AFTER: \(manifestArraySubkeys)")
             }
             manifestSubkey[ManifestKey.subkeys.rawValue] = manifestArraySubkeys
         } else if valueType == .dictionary {
@@ -352,7 +352,7 @@ public class PayloadManagedPreferenceLocal: Payload {
             Swift.print("Unhandled subkey type: \(valueType)")
         }
 
-        //Swift.print("manifestSubkeys: \(manifestSubkeys)")
+        // Swift.print("manifestSubkeys: \(manifestSubkeys)")
         manifestSubkeys.append(manifestSubkey)
         return manifestSubkeys
     }

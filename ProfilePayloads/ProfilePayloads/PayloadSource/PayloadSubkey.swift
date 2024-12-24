@@ -135,11 +135,11 @@ public class PayloadSubkey {
         //  Initialize required variables
         // ---------------------------------------------------------------------
         // Type
-        //let type: PayloadValueType
+        // let type: PayloadValueType
         if let subkeyType = subkey[ManifestKey.type.rawValue] as? String {
             let valueType = PayloadValueType(stringValue: subkeyType)
             if valueType != .undefined {
-                //type = valueType
+                // type = valueType
                 self.type = valueType
                 self.ignoredKeys.removeValue(forKey: ManifestKey.type.rawValue)
             } else { return nil }
@@ -437,7 +437,7 @@ public class PayloadSubkey {
         // Range List
         case .rangeList:
             // FIXME: There are probably more efficient methods to check that the array contains the payloads "Type"
-            if let rangeList = value as? [Any], 0 == rangeList.filter({
+            if let rangeList = value as? [Any], rangeList.filter({
                 if self.type == .integer {
                     return PayloadUtility.valueType(value: Int(String(describing: $0))) != self.type
                 } else if self.type == .float {
@@ -445,7 +445,7 @@ public class PayloadSubkey {
                 } else {
                     return PayloadUtility.valueType(value: $0) != self.type
                 }
-            }).count {
+            }).isEmpty {
                 self.rangeList = rangeList
             } else { Swift.print("Class: \(self.self), Function: \(#function), Value: \(String(describing: value)) for key: \(manifestKey) is not of expected type \(self.type)") }
 

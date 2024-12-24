@@ -14,7 +14,7 @@ public class ProfilePayloads {
     //  Variables
     // ---------------------------------------------------------------------
     public static let shared = ProfilePayloads()
-    public static let platformsSupervised: Platforms = [.iOS, .tvOS]
+    public static let platformsSupervised: Platforms = [.iOS, .tvOS, .macOS]
     public static let platformsUserApproved: Platforms = [.macOS]
     public static let rangeListConvertMax = 40
 
@@ -252,10 +252,8 @@ public class ProfilePayloads {
         }
 
         // Managed Preferences
-        for type in [.managedPreferencesApple, .managedPreferencesApplications, .managedPreferencesApplicationsLocal] as [PayloadType] {
-            if managedPreference(forDomainIdentifier: domain, ofType: type) != nil {
-                types.append(type)
-            }
+        for type in [.managedPreferencesApple, .managedPreferencesApplications, .managedPreferencesApplicationsLocal] as [PayloadType] where managedPreference(forDomainIdentifier: domain, ofType: type) != nil {
+            types.append(type)
         }
 
         return types.isEmpty ? nil : types
